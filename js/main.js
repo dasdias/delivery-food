@@ -31,7 +31,11 @@ function toggleModal() {
 function toogleModalAuth() {
 	modalAuth.classList.toggle('is-open');
 }
-
+function returnMain() {
+	containerPromo.classList.remove('hide');
+	restaurants.classList.remove('hide');
+	menu.classList.add('hide');
+}
 function authorized() {
 	function logOut() {
 		login = null;
@@ -42,8 +46,9 @@ function authorized() {
 		buttonOut.removeEventListener('click', logOut); 
 
 		checkAuth();
+		returnMain();
 	}
-	console.log('Авторизован');
+	// console.log('Авторизован');
 	buttonAuth.style.display = 'none';
 	buttonOut.style.display = 'block';
 	userName.style.display = 'inline';
@@ -179,3 +184,18 @@ logo.addEventListener('click', function () {
 
 checkAuth();
 createCardRestaraunt();
+
+
+var mySwiper = new Swiper('.swiper-container', {
+	// Optional parameters
+	// init: true,
+	// direction: 'vertical',
+	// slidesPerColumn: 1,
+	slidesPerView: 1,
+	// slidesPerColumnFill: 'row',
+	loop: true,
+	speed: 400,
+	autoplay: {
+		delay: 5000,
+	},
+});
